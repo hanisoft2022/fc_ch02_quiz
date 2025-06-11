@@ -1,0 +1,178 @@
+// dart format width=80
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
+part of 'quiz.dart';
+
+// **************************************************************************
+// FreezedGenerator
+// **************************************************************************
+
+// dart format off
+T _$identity<T>(T value) => value;
+/// @nodoc
+mixin _$QuizManager {
+
+ List<ProblemManager> get problems; String get title; ProblemManager? get current;
+/// Create a copy of QuizManager
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$QuizManagerCopyWith<QuizManager> get copyWith => _$QuizManagerCopyWithImpl<QuizManager>(this as QuizManager, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is QuizManager&&const DeepCollectionEquality().equals(other.problems, problems)&&(identical(other.title, title) || other.title == title)&&(identical(other.current, current) || other.current == current));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(problems),title,current);
+
+@override
+String toString() {
+  return 'QuizManager(problems: $problems, title: $title, current: $current)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $QuizManagerCopyWith<$Res>  {
+  factory $QuizManagerCopyWith(QuizManager value, $Res Function(QuizManager) _then) = _$QuizManagerCopyWithImpl;
+@useResult
+$Res call({
+ List<ProblemManager> problems, String title, ProblemManager? current
+});
+
+
+$ProblemManagerCopyWith<$Res>? get current;
+
+}
+/// @nodoc
+class _$QuizManagerCopyWithImpl<$Res>
+    implements $QuizManagerCopyWith<$Res> {
+  _$QuizManagerCopyWithImpl(this._self, this._then);
+
+  final QuizManager _self;
+  final $Res Function(QuizManager) _then;
+
+/// Create a copy of QuizManager
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? problems = null,Object? title = null,Object? current = freezed,}) {
+  return _then(_self.copyWith(
+problems: null == problems ? _self.problems : problems // ignore: cast_nullable_to_non_nullable
+as List<ProblemManager>,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
+as String,current: freezed == current ? _self.current : current // ignore: cast_nullable_to_non_nullable
+as ProblemManager?,
+  ));
+}
+/// Create a copy of QuizManager
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ProblemManagerCopyWith<$Res>? get current {
+    if (_self.current == null) {
+    return null;
+  }
+
+  return $ProblemManagerCopyWith<$Res>(_self.current!, (value) {
+    return _then(_self.copyWith(current: value));
+  });
+}
+}
+
+
+/// @nodoc
+
+
+class _QuizManager implements QuizManager {
+  const _QuizManager({required final  List<ProblemManager> problems, required this.title, this.current}): _problems = problems;
+  
+
+ final  List<ProblemManager> _problems;
+@override List<ProblemManager> get problems {
+  if (_problems is EqualUnmodifiableListView) return _problems;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_problems);
+}
+
+@override final  String title;
+@override final  ProblemManager? current;
+
+/// Create a copy of QuizManager
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$QuizManagerCopyWith<_QuizManager> get copyWith => __$QuizManagerCopyWithImpl<_QuizManager>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _QuizManager&&const DeepCollectionEquality().equals(other._problems, _problems)&&(identical(other.title, title) || other.title == title)&&(identical(other.current, current) || other.current == current));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_problems),title,current);
+
+@override
+String toString() {
+  return 'QuizManager(problems: $problems, title: $title, current: $current)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$QuizManagerCopyWith<$Res> implements $QuizManagerCopyWith<$Res> {
+  factory _$QuizManagerCopyWith(_QuizManager value, $Res Function(_QuizManager) _then) = __$QuizManagerCopyWithImpl;
+@override @useResult
+$Res call({
+ List<ProblemManager> problems, String title, ProblemManager? current
+});
+
+
+@override $ProblemManagerCopyWith<$Res>? get current;
+
+}
+/// @nodoc
+class __$QuizManagerCopyWithImpl<$Res>
+    implements _$QuizManagerCopyWith<$Res> {
+  __$QuizManagerCopyWithImpl(this._self, this._then);
+
+  final _QuizManager _self;
+  final $Res Function(_QuizManager) _then;
+
+/// Create a copy of QuizManager
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? problems = null,Object? title = null,Object? current = freezed,}) {
+  return _then(_QuizManager(
+problems: null == problems ? _self._problems : problems // ignore: cast_nullable_to_non_nullable
+as List<ProblemManager>,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
+as String,current: freezed == current ? _self.current : current // ignore: cast_nullable_to_non_nullable
+as ProblemManager?,
+  ));
+}
+
+/// Create a copy of QuizManager
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ProblemManagerCopyWith<$Res>? get current {
+    if (_self.current == null) {
+    return null;
+  }
+
+  return $ProblemManagerCopyWith<$Res>(_self.current!, (value) {
+    return _then(_self.copyWith(current: value));
+  });
+}
+}
+
+// dart format on

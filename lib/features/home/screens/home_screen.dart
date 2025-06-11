@@ -16,7 +16,7 @@ class MyHomePage extends HookWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+          children: [
             const Text('You have pushed the button this many times:'),
             Text(count.value.toString(), style: Theme.of(context).textTheme.headlineMedium),
           ],
