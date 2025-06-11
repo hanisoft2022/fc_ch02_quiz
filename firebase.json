@@ -1,0 +1,53 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "fc-ch02-realtime-quiz",
+          "appId": "1:643881133335:android:8130850bf97ed1cb1e0352",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "ios": {
+        "default": {
+          "projectId": "fc-ch02-realtime-quiz",
+          "appId": "1:643881133335:ios:604915ec533a20771e0352",
+          "uploadDebugSymbols": false,
+          "fileOutput": "ios/Runner/GoogleService-Info.plist"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "fc-ch02-realtime-quiz",
+          "configurations": {
+            "android": "1:643881133335:android:8130850bf97ed1cb1e0352",
+            "ios": "1:643881133335:ios:604915ec533a20771e0352",
+            "web": "1:643881133335:web:c3e601c17592e3861e0352"
+          }
+        }
+      }
+    }
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "storage": {
+    "rules": "storage.rules"
+  },
+  "emulators": {
+    "auth": {
+      "port": 9099
+    },
+    "firestore": {
+      "port": 8080
+    },
+    "storage": {
+      "port": 9199
+    },
+    "ui": {
+      "enabled": true
+    },
+    "singleProjectMode": true
+  }
+}
