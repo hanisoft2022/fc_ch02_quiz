@@ -1,4 +1,4 @@
-import 'package:ch02_realtime_quiz/features/problem/model/problem_manager.dart';
+import 'package:ch02_realtime_quiz/common/model/problem_manager.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'quiz.freezed.dart';
