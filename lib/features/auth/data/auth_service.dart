@@ -14,7 +14,7 @@ class AuthService {
   CollectionReference<AppUser> get _userCollection => _firestore
       .collection('users')
       .withConverter<AppUser>(
-        fromFirestore: (snapshot, _) => AppUser.fromJson({...snapshot.data()!, 'uid': snapshot.id}),
+        fromFirestore: (snapshot, _) => AppUser.fromJson(snapshot.data()!),
         toFirestore: (user, _) => user.toJson(),
       );
 
