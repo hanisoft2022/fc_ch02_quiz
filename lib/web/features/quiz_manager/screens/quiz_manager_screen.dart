@@ -1,5 +1,8 @@
 import 'package:ch02_realtime_quiz/common/model/quiz.dart';
+import 'package:ch02_realtime_quiz/core/extensions/media_query_extension.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class QuizManagerScreen extends StatelessWidget {
@@ -26,14 +29,33 @@ class QuizManagerScreen extends StatelessWidget {
         ),
         body: TabBarView(
           children: [
-            ListView.builder(
-              itemCount: quizManagers.length,
-              itemBuilder: (context, index) =>
-                  ExpansionTile(title: quizManagers[index].title.text.make()),
+            Column(
+              children: [
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: quizManagers.length,
+                    itemBuilder: (context, index) => ExpansionTile(
+                      title: quizManagers[index].title.text.make(),
+                      children: quizManagers[index].problems
+                          .map((e) => ListTile(title: e.controller.text.text.make()))
+                          .toList(),
+                    ),
+                  ),
+                ),
+                ElevatedButton(onPressed: () {}, child: '제출 및 핀코드 생성'.text.make()),
+                Gap(
+                  kIsWeb
+                      ? 24 // 웹 기본값
+                      : context.bottomInset == 0
+                      ? 16 // 안드로이드 등 홈 인디케이터 없는 기기
+                      : context.bottomInset, // iOS 홈 인디케이터
+                ),
+              ],
             ),
             Center(child: Text('퀴즈 목록')),
           ],
         ),
+        floatingActionButton: FloatingActionButton(onPressed: () async {}, child: Icon(Icons.add)),
       ),
     );
   }
