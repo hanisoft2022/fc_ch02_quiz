@@ -29,10 +29,12 @@ dependencies:
 
   # --- 인증(Authentication) ---
   firebase_auth: ^5.6.0
+  google_sign_in: ^6.3.0
 
   # --- 데이터 모델/직렬화(Model/Serialization) ---
   freezed_annotation: ^3.0.0
   json_annotation: ^4.9.0
+  
 
   
   # --- 로깅/에러 추적 ---
