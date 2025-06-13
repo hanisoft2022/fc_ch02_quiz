@@ -1,5 +1,5 @@
 import 'package:ch02_realtime_quiz/web/features/quiz_manager/models/problem_manager.dart';
-import 'package:ch02_realtime_quiz/web/features/quiz_manager/models/quiz.dart';
+import 'package:ch02_realtime_quiz/web/features/quiz_manager/models/quiz_manager.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class QuizManagerDataSource {
@@ -69,6 +69,7 @@ class QuizManagerDataSource {
   Future<void> addQuiz(QuizManager quiz) async {
     final docRef = _quizzes.doc();
     await docRef.set(quiz.copyWith(id: docRef.id));
+    // ! timestamp 어떻게 해야 할지 고민..
   }
 
   // *READ

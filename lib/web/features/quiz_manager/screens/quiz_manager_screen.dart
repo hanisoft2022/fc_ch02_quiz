@@ -1,5 +1,5 @@
 import 'package:ch02_realtime_quiz/core/extensions/media_query_extension.dart';
-import 'package:ch02_realtime_quiz/web/features/quiz_manager/models/quiz.dart';
+import 'package:ch02_realtime_quiz/web/features/quiz_manager/models/quiz_manager.dart';
 import 'package:ch02_realtime_quiz/web/features/quiz_manager/providers/quiz_manager_providers.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

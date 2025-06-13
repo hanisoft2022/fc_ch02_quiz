@@ -4,7 +4,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'quiz.dart';
+part of 'quiz_manager.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$QuizManager {
 
- String? get id; List<ProblemManager> get problems; String get title; ProblemManager? get current;
+ String? get id; List<ProblemManager> get problems; String get title; ProblemManager? get current; DateTime? get createdAt;
 /// Create a copy of QuizManager
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,16 +29,16 @@ $QuizManagerCopyWith<QuizManager> get copyWith => _$QuizManagerCopyWithImpl<Quiz
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is QuizManager&&(identical(other.id, id) || other.id == id)&&const DeepCollectionEquality().equals(other.problems, problems)&&(identical(other.title, title) || other.title == title)&&(identical(other.current, current) || other.current == current));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is QuizManager&&(identical(other.id, id) || other.id == id)&&const DeepCollectionEquality().equals(other.problems, problems)&&(identical(other.title, title) || other.title == title)&&(identical(other.current, current) || other.current == current)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,const DeepCollectionEquality().hash(problems),title,current);
+int get hashCode => Object.hash(runtimeType,id,const DeepCollectionEquality().hash(problems),title,current,createdAt);
 
 @override
 String toString() {
-  return 'QuizManager(id: $id, problems: $problems, title: $title, current: $current)';
+  return 'QuizManager(id: $id, problems: $problems, title: $title, current: $current, createdAt: $createdAt)';
 }
 
 
@@ -49,7 +49,7 @@ abstract mixin class $QuizManagerCopyWith<$Res>  {
   factory $QuizManagerCopyWith(QuizManager value, $Res Function(QuizManager) _then) = _$QuizManagerCopyWithImpl;
 @useResult
 $Res call({
- String? id, List<ProblemManager> problems, String title, ProblemManager? current
+ String? id, List<ProblemManager> problems, String title, ProblemManager? current, DateTime? createdAt
 });
 
 
@@ -66,13 +66,14 @@ class _$QuizManagerCopyWithImpl<$Res>
 
 /// Create a copy of QuizManager
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = freezed,Object? problems = null,Object? title = null,Object? current = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = freezed,Object? problems = null,Object? title = null,Object? current = freezed,Object? createdAt = freezed,}) {
   return _then(_self.copyWith(
 id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String?,problems: null == problems ? _self.problems : problems // ignore: cast_nullable_to_non_nullable
 as List<ProblemManager>,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,current: freezed == current ? _self.current : current // ignore: cast_nullable_to_non_nullable
-as ProblemManager?,
+as ProblemManager?,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,
   ));
 }
 /// Create a copy of QuizManager
@@ -95,7 +96,7 @@ $ProblemManagerCopyWith<$Res>? get current {
 
 @JsonSerializable(explicitToJson: true)
 class _QuizManager implements QuizManager {
-  const _QuizManager({required this.id, required final  List<ProblemManager> problems, required this.title, this.current}): _problems = problems;
+  const _QuizManager({required this.id, required final  List<ProblemManager> problems, required this.title, this.current, this.createdAt}): _problems = problems;
   factory _QuizManager.fromJson(Map<String, dynamic> json) => _$QuizManagerFromJson(json);
 
 @override final  String? id;
@@ -108,6 +109,7 @@ class _QuizManager implements QuizManager {
 
 @override final  String title;
 @override final  ProblemManager? current;
+@override final  DateTime? createdAt;
 
 /// Create a copy of QuizManager
 /// with the given fields replaced by the non-null parameter values.
@@ -122,16 +124,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _QuizManager&&(identical(other.id, id) || other.id == id)&&const DeepCollectionEquality().equals(other._problems, _problems)&&(identical(other.title, title) || other.title == title)&&(identical(other.current, current) || other.current == current));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _QuizManager&&(identical(other.id, id) || other.id == id)&&const DeepCollectionEquality().equals(other._problems, _problems)&&(identical(other.title, title) || other.title == title)&&(identical(other.current, current) || other.current == current)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,const DeepCollectionEquality().hash(_problems),title,current);
+int get hashCode => Object.hash(runtimeType,id,const DeepCollectionEquality().hash(_problems),title,current,createdAt);
 
 @override
 String toString() {
-  return 'QuizManager(id: $id, problems: $problems, title: $title, current: $current)';
+  return 'QuizManager(id: $id, problems: $problems, title: $title, current: $current, createdAt: $createdAt)';
 }
 
 
@@ -142,7 +144,7 @@ abstract mixin class _$QuizManagerCopyWith<$Res> implements $QuizManagerCopyWith
   factory _$QuizManagerCopyWith(_QuizManager value, $Res Function(_QuizManager) _then) = __$QuizManagerCopyWithImpl;
 @override @useResult
 $Res call({
- String? id, List<ProblemManager> problems, String title, ProblemManager? current
+ String? id, List<ProblemManager> problems, String title, ProblemManager? current, DateTime? createdAt
 });
 
 
@@ -159,13 +161,14 @@ class __$QuizManagerCopyWithImpl<$Res>
 
 /// Create a copy of QuizManager
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = freezed,Object? problems = null,Object? title = null,Object? current = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = freezed,Object? problems = null,Object? title = null,Object? current = freezed,Object? createdAt = freezed,}) {
   return _then(_QuizManager(
 id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String?,problems: null == problems ? _self._problems : problems // ignore: cast_nullable_to_non_nullable
 as List<ProblemManager>,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,current: freezed == current ? _self.current : current // ignore: cast_nullable_to_non_nullable
-as ProblemManager?,
+as ProblemManager?,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,
   ));
 }
 
