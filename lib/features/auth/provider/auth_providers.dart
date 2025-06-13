@@ -12,7 +12,7 @@ AuthService authService(Ref ref) {
   return AuthService();
 }
 
-// 함수형 provider 예시
+// 함수형 provider
 @riverpod
 Stream<User?> authState(Ref ref) {
   return FirebaseAuth.instance.authStateChanges();

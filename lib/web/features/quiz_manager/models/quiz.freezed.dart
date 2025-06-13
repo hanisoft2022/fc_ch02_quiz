@@ -12,30 +12,33 @@ part of 'quiz.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
+
 /// @nodoc
 mixin _$QuizManager {
 
- List<ProblemManager> get problems; String get title; ProblemManager? get current;
+ String? get id; List<ProblemManager> get problems; String get title; ProblemManager? get current;
 /// Create a copy of QuizManager
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
 $QuizManagerCopyWith<QuizManager> get copyWith => _$QuizManagerCopyWithImpl<QuizManager>(this as QuizManager, _$identity);
 
+  /// Serializes this QuizManager to a JSON map.
+  Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is QuizManager&&const DeepCollectionEquality().equals(other.problems, problems)&&(identical(other.title, title) || other.title == title)&&(identical(other.current, current) || other.current == current));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is QuizManager&&(identical(other.id, id) || other.id == id)&&const DeepCollectionEquality().equals(other.problems, problems)&&(identical(other.title, title) || other.title == title)&&(identical(other.current, current) || other.current == current));
 }
 
-
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(problems),title,current);
+int get hashCode => Object.hash(runtimeType,id,const DeepCollectionEquality().hash(problems),title,current);
 
 @override
 String toString() {
-  return 'QuizManager(problems: $problems, title: $title, current: $current)';
+  return 'QuizManager(id: $id, problems: $problems, title: $title, current: $current)';
 }
 
 
@@ -46,7 +49,7 @@ abstract mixin class $QuizManagerCopyWith<$Res>  {
   factory $QuizManagerCopyWith(QuizManager value, $Res Function(QuizManager) _then) = _$QuizManagerCopyWithImpl;
 @useResult
 $Res call({
- List<ProblemManager> problems, String title, ProblemManager? current
+ String? id, List<ProblemManager> problems, String title, ProblemManager? current
 });
 
 
@@ -63,9 +66,10 @@ class _$QuizManagerCopyWithImpl<$Res>
 
 /// Create a copy of QuizManager
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? problems = null,Object? title = null,Object? current = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = freezed,Object? problems = null,Object? title = null,Object? current = freezed,}) {
   return _then(_self.copyWith(
-problems: null == problems ? _self.problems : problems // ignore: cast_nullable_to_non_nullable
+id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,problems: null == problems ? _self.problems : problems // ignore: cast_nullable_to_non_nullable
 as List<ProblemManager>,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,current: freezed == current ? _self.current : current // ignore: cast_nullable_to_non_nullable
 as ProblemManager?,
@@ -89,11 +93,12 @@ $ProblemManagerCopyWith<$Res>? get current {
 
 /// @nodoc
 
-
+@JsonSerializable(explicitToJson: true)
 class _QuizManager implements QuizManager {
-  const _QuizManager({required final  List<ProblemManager> problems, required this.title, this.current}): _problems = problems;
-  
+  const _QuizManager({required this.id, required final  List<ProblemManager> problems, required this.title, this.current}): _problems = problems;
+  factory _QuizManager.fromJson(Map<String, dynamic> json) => _$QuizManagerFromJson(json);
 
+@override final  String? id;
  final  List<ProblemManager> _problems;
 @override List<ProblemManager> get problems {
   if (_problems is EqualUnmodifiableListView) return _problems;
@@ -110,20 +115,23 @@ class _QuizManager implements QuizManager {
 @pragma('vm:prefer-inline')
 _$QuizManagerCopyWith<_QuizManager> get copyWith => __$QuizManagerCopyWithImpl<_QuizManager>(this, _$identity);
 
-
+@override
+Map<String, dynamic> toJson() {
+  return _$QuizManagerToJson(this, );
+}
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _QuizManager&&const DeepCollectionEquality().equals(other._problems, _problems)&&(identical(other.title, title) || other.title == title)&&(identical(other.current, current) || other.current == current));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _QuizManager&&(identical(other.id, id) || other.id == id)&&const DeepCollectionEquality().equals(other._problems, _problems)&&(identical(other.title, title) || other.title == title)&&(identical(other.current, current) || other.current == current));
 }
 
-
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_problems),title,current);
+int get hashCode => Object.hash(runtimeType,id,const DeepCollectionEquality().hash(_problems),title,current);
 
 @override
 String toString() {
-  return 'QuizManager(problems: $problems, title: $title, current: $current)';
+  return 'QuizManager(id: $id, problems: $problems, title: $title, current: $current)';
 }
 
 
@@ -134,7 +142,7 @@ abstract mixin class _$QuizManagerCopyWith<$Res> implements $QuizManagerCopyWith
   factory _$QuizManagerCopyWith(_QuizManager value, $Res Function(_QuizManager) _then) = __$QuizManagerCopyWithImpl;
 @override @useResult
 $Res call({
- List<ProblemManager> problems, String title, ProblemManager? current
+ String? id, List<ProblemManager> problems, String title, ProblemManager? current
 });
 
 
@@ -151,9 +159,10 @@ class __$QuizManagerCopyWithImpl<$Res>
 
 /// Create a copy of QuizManager
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? problems = null,Object? title = null,Object? current = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = freezed,Object? problems = null,Object? title = null,Object? current = freezed,}) {
   return _then(_QuizManager(
-problems: null == problems ? _self._problems : problems // ignore: cast_nullable_to_non_nullable
+id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,problems: null == problems ? _self._problems : problems // ignore: cast_nullable_to_non_nullable
 as List<ProblemManager>,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,current: freezed == current ? _self.current : current // ignore: cast_nullable_to_non_nullable
 as ProblemManager?,
