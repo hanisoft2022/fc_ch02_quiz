@@ -18,7 +18,7 @@ class QuizManagerScreen extends ConsumerWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('퀴즈 출제하기(출제자용)'),
+          title: '퀴즈 출제하기(출제자용)'.text.make(),
           actions: [
             TextButton.icon(
               label: '더미 퀴즈 추가'.text.make(),
@@ -41,15 +41,17 @@ class QuizManagerScreen extends ConsumerWidget {
               children: [
                 Expanded(
                   child: quizListAsync.when(
-                    data: (quizManagers) => ListView.builder(
-                      itemCount: quizManagers.length,
-                      itemBuilder: (context, index) => ExpansionTile(
-                        title: quizManagers[index].title.text.make(),
-                        children: quizManagers[index].problems
-                            .map((e) => ListTile(title: e.question.text.make()))
-                            .toList(),
-                      ),
-                    ),
+                    data: (quizManagers) => quizManagers.isEmpty
+                        ? Center(child: Text('등록된 퀴즈가 없습니다.'))
+                        : ListView.builder(
+                            itemCount: quizManagers.length,
+                            itemBuilder: (context, index) => ExpansionTile(
+                              title: quizManagers[index].title.text.make(),
+                              children: quizManagers[index].problems
+                                  .map((e) => ListTile(title: e.question.text.make()))
+                                  .toList(),
+                            ),
+                          ),
                     error: (error, stackTrace) => Center(child: Text(error.toString())),
                     loading: () => Center(child: CircularProgressIndicator()),
                   ),

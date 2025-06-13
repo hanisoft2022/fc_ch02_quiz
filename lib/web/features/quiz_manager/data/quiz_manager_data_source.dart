@@ -16,7 +16,7 @@ class QuizManagerDataSource {
       );
 
   // * CREATE
-  Future<void> addDummyQuiz() async {
+  Future<void> addDummyQuizzes() async {
     final List<QuizManager> quizManagers = [
       QuizManager(
         id: null,

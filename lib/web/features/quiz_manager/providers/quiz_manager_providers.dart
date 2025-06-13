@@ -24,7 +24,7 @@ class QuizManagerController extends _$QuizManagerController {
   // * CREATE
   Future<void> addDummyQuiz() async {
     final quizManagerDataSource = ref.read(quizManagerDataSourceProvider);
-    await quizManagerDataSource.addDummyQuiz();
+    await quizManagerDataSource.addDummyQuizzes();
   }
 
   // * CREATE

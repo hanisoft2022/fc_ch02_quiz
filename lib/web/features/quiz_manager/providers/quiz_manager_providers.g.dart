@@ -44,7 +44,7 @@ final quizListProvider = AutoDisposeStreamProvider<List<QuizManager>>.internal(
 // ignore: unused_element
 typedef QuizListRef = AutoDisposeStreamProviderRef<List<QuizManager>>;
 String _$quizManagerControllerHash() =>
-    r'5b727ccfc0f85027875fca11a459d53d1ff8d3bb';
+    r'b1de8f85d14ae6629120597f44fa6b8e5ef99dee';
 
 /// See also [QuizManagerController].
 @ProviderFor(QuizManagerController)
