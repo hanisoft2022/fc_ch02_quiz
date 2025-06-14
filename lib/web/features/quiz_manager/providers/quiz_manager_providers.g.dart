@@ -9,7 +9,9 @@ part of 'quiz_manager_providers.dart';
 String _$quizManagerDataSourceHash() =>
     r'adeb5ead1d164e597c0002c6e9060a9c4218d747';
 
-/// See also [quizManagerDataSource].
+/// 퀴즈 데이터소스 Provider (Firestore 연동)
+///
+/// Copied from [quizManagerDataSource].
 @ProviderFor(quizManagerDataSource)
 final quizManagerDataSourceProvider =
     AutoDisposeProvider<QuizManagerDataSource>.internal(
@@ -28,7 +30,9 @@ typedef QuizManagerDataSourceRef =
     AutoDisposeProviderRef<QuizManagerDataSource>;
 String _$quizListHash() => r'79482587e82a60a512e5d2acfd4f2a95b877c8be';
 
-/// See also [quizList].
+/// 실시간 퀴즈 목록 스트림 Provider
+///
+/// Copied from [quizList].
 @ProviderFor(quizList)
 final quizListProvider = AutoDisposeStreamProvider<List<QuizManager>>.internal(
   quizList,
@@ -46,7 +50,9 @@ typedef QuizListRef = AutoDisposeStreamProviderRef<List<QuizManager>>;
 String _$quizManagerControllerHash() =>
     r'b1de8f85d14ae6629120597f44fa6b8e5ef99dee';
 
-/// See also [QuizManagerController].
+/// 퀴즈 관련 비즈니스 로직 컨트롤러 (CRUD)
+///
+/// Copied from [QuizManagerController].
 @ProviderFor(QuizManagerController)
 final quizManagerControllerProvider =
     AutoDisposeAsyncNotifierProvider<QuizManagerController, void>.internal(
