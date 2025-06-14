@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$QuizManager {
 
- String? get id; List<ProblemManager> get problems; String get title; ProblemManager? get current; DateTime? get createdAt;
+ String? get id; List<ProblemManager> get problems; String get title; ProblemManager? get current;@TimestampConverter() DateTime? get createdAt;
 /// Create a copy of QuizManager
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,7 +49,7 @@ abstract mixin class $QuizManagerCopyWith<$Res>  {
   factory $QuizManagerCopyWith(QuizManager value, $Res Function(QuizManager) _then) = _$QuizManagerCopyWithImpl;
 @useResult
 $Res call({
- String? id, List<ProblemManager> problems, String title, ProblemManager? current, DateTime? createdAt
+ String? id, List<ProblemManager> problems, String title, ProblemManager? current,@TimestampConverter() DateTime? createdAt
 });
 
 
@@ -96,7 +96,7 @@ $ProblemManagerCopyWith<$Res>? get current {
 
 @JsonSerializable(explicitToJson: true)
 class _QuizManager implements QuizManager {
-  const _QuizManager({required this.id, required final  List<ProblemManager> problems, required this.title, this.current, this.createdAt}): _problems = problems;
+  const _QuizManager({required this.id, required final  List<ProblemManager> problems, required this.title, this.current, @TimestampConverter() this.createdAt}): _problems = problems;
   factory _QuizManager.fromJson(Map<String, dynamic> json) => _$QuizManagerFromJson(json);
 
 @override final  String? id;
@@ -109,7 +109,7 @@ class _QuizManager implements QuizManager {
 
 @override final  String title;
 @override final  ProblemManager? current;
-@override final  DateTime? createdAt;
+@override@TimestampConverter() final  DateTime? createdAt;
 
 /// Create a copy of QuizManager
 /// with the given fields replaced by the non-null parameter values.
@@ -144,7 +144,7 @@ abstract mixin class _$QuizManagerCopyWith<$Res> implements $QuizManagerCopyWith
   factory _$QuizManagerCopyWith(_QuizManager value, $Res Function(_QuizManager) _then) = __$QuizManagerCopyWithImpl;
 @override @useResult
 $Res call({
- String? id, List<ProblemManager> problems, String title, ProblemManager? current, DateTime? createdAt
+ String? id, List<ProblemManager> problems, String title, ProblemManager? current,@TimestampConverter() DateTime? createdAt
 });
 
 

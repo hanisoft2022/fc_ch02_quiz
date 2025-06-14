@@ -15,9 +15,9 @@ _QuizManager _$QuizManagerFromJson(Map<String, dynamic> json) => _QuizManager(
   current: json['current'] == null
       ? null
       : ProblemManager.fromJson(json['current'] as Map<String, dynamic>),
-  createdAt: json['createdAt'] == null
-      ? null
-      : DateTime.parse(json['createdAt'] as String),
+  createdAt: const TimestampConverter().fromJson(
+    json['createdAt'] as Timestamp?,
+  ),
 );
 
 Map<String, dynamic> _$QuizManagerToJson(_QuizManager instance) =>
@@ -26,5 +26,5 @@ Map<String, dynamic> _$QuizManagerToJson(_QuizManager instance) =>
       'problems': instance.problems.map((e) => e.toJson()).toList(),
       'title': instance.title,
       'current': instance.current?.toJson(),
-      'createdAt': instance.createdAt?.toIso8601String(),
+      'createdAt': const TimestampConverter().toJson(instance.createdAt),
     };
