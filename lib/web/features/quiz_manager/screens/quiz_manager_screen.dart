@@ -1,5 +1,5 @@
 import 'package:ch02_realtime_quiz/core/extensions/media_query_extension.dart';
-import 'package:ch02_realtime_quiz/web/features/quiz_manager/models/quiz_manager.dart';
+import 'package:ch02_realtime_quiz/web/features/quiz_manager/models/quiz.dart';
 import 'package:ch02_realtime_quiz/web/features/quiz_manager/providers/quiz_manager_providers.dart';
 import 'package:ch02_realtime_quiz/web/features/quiz_manager/widgets/quiz_add_modal.dart';
 import 'package:ch02_realtime_quiz/web/features/quiz_manager/widgets/quiz_bottom_button.dart';
@@ -9,19 +9,19 @@ import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class QuizManagerScreen extends ConsumerWidget {
-  const QuizManagerScreen({super.key});
+class QuizScreen extends ConsumerWidget {
+  const QuizScreen({super.key});
 
   // 여기서 private 메서드로 정의 (context, ref를 파라미터로 받음)
   Future<void> _addQuiz(BuildContext context, WidgetRef ref) async {
-    final quiz = await showModalBottomSheet<QuizManager>(
+    final quiz = await showModalBottomSheet<Quiz>(
       context: context,
       builder: (context) => QuizAddModal(),
     );
 
     if (quiz == null) return;
 
-    ref.watch(quizManagerControllerProvider.notifier).addQuiz(quiz);
+    ref.watch(quizControllerProvider.notifier).addQuiz(quiz);
   }
 
   @override
@@ -37,7 +37,7 @@ class QuizManagerScreen extends ConsumerWidget {
             TextButton.icon(
               label: '더미 퀴즈 추가'.text.make(),
               onPressed: () {
-                ref.watch(quizManagerControllerProvider.notifier).addDummyQuiz();
+                ref.watch(quizControllerProvider.notifier).addDummyQuiz();
               },
               icon: Icon(Icons.add),
             ),
@@ -55,7 +55,7 @@ class QuizManagerScreen extends ConsumerWidget {
               children: [
                 Expanded(
                   child: quizListAsync.when(
-                    data: (quizManagers) => QuizListView(quizManagers: quizManagers),
+                    data: (quizzes) => QuizListView(quiz: quizzes),
                     error: (error, stackTrace) => Center(child: Text(error.toString())),
                     loading: () => Center(child: CircularProgressIndicator()),
                   ),

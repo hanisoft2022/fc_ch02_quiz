@@ -6,35 +6,32 @@ part of 'quiz_manager_providers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$quizManagerDataSourceHash() =>
-    r'adeb5ead1d164e597c0002c6e9060a9c4218d747';
+String _$quizDataSourceHash() => r'cdf9e7bc4bca598780ec1280be304a0d8dabfeea';
 
 /// 퀴즈 데이터소스 Provider (Firestore 연동)
 ///
-/// Copied from [quizManagerDataSource].
-@ProviderFor(quizManagerDataSource)
-final quizManagerDataSourceProvider =
-    AutoDisposeProvider<QuizManagerDataSource>.internal(
-      quizManagerDataSource,
-      name: r'quizManagerDataSourceProvider',
-      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-          ? null
-          : _$quizManagerDataSourceHash,
-      dependencies: null,
-      allTransitiveDependencies: null,
-    );
+/// Copied from [quizDataSource].
+@ProviderFor(quizDataSource)
+final quizDataSourceProvider = AutoDisposeProvider<QuizDataSource>.internal(
+  quizDataSource,
+  name: r'quizDataSourceProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$quizDataSourceHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-typedef QuizManagerDataSourceRef =
-    AutoDisposeProviderRef<QuizManagerDataSource>;
-String _$quizListHash() => r'79482587e82a60a512e5d2acfd4f2a95b877c8be';
+typedef QuizDataSourceRef = AutoDisposeProviderRef<QuizDataSource>;
+String _$quizListHash() => r'5f2d7570b70b1c9adcbd94353a1d990b0cd80a10';
 
 /// 실시간 퀴즈 목록 스트림 Provider
 ///
 /// Copied from [quizList].
 @ProviderFor(quizList)
-final quizListProvider = AutoDisposeStreamProvider<List<QuizManager>>.internal(
+final quizListProvider = AutoDisposeStreamProvider<List<Quiz>>.internal(
   quizList,
   name: r'quizListProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -46,25 +43,24 @@ final quizListProvider = AutoDisposeStreamProvider<List<QuizManager>>.internal(
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-typedef QuizListRef = AutoDisposeStreamProviderRef<List<QuizManager>>;
-String _$quizManagerControllerHash() =>
-    r'b1de8f85d14ae6629120597f44fa6b8e5ef99dee';
+typedef QuizListRef = AutoDisposeStreamProviderRef<List<Quiz>>;
+String _$quizControllerHash() => r'e8f0336f67cf245e1afee7044db2264afb90f6f1';
 
 /// 퀴즈 관련 비즈니스 로직 컨트롤러 (CRUD)
 ///
-/// Copied from [QuizManagerController].
-@ProviderFor(QuizManagerController)
-final quizManagerControllerProvider =
-    AutoDisposeAsyncNotifierProvider<QuizManagerController, void>.internal(
-      QuizManagerController.new,
-      name: r'quizManagerControllerProvider',
+/// Copied from [QuizController].
+@ProviderFor(QuizController)
+final quizControllerProvider =
+    AutoDisposeAsyncNotifierProvider<QuizController, void>.internal(
+      QuizController.new,
+      name: r'quizControllerProvider',
       debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
           ? null
-          : _$quizManagerControllerHash,
+          : _$quizControllerHash,
       dependencies: null,
       allTransitiveDependencies: null,
     );
 
-typedef _$QuizManagerController = AutoDisposeAsyncNotifier<void>;
+typedef _$QuizController = AutoDisposeAsyncNotifier<void>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
