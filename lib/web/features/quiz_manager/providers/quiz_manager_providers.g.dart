@@ -25,25 +25,178 @@ final quizDataSourceProvider = AutoDisposeProvider<QuizDataSource>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef QuizDataSourceRef = AutoDisposeProviderRef<QuizDataSource>;
-String _$quizListHash() => r'5f2d7570b70b1c9adcbd94353a1d990b0cd80a10';
+String _$watchQuizzesHash() => r'2d73ae1bd6438ba3ba44fefe6d1d521c972627c3';
 
 /// 실시간 퀴즈 목록 스트림 Provider
 ///
-/// Copied from [quizList].
-@ProviderFor(quizList)
-final quizListProvider = AutoDisposeStreamProvider<List<Quiz>>.internal(
-  quizList,
-  name: r'quizListProvider',
+/// Copied from [watchQuizzes].
+@ProviderFor(watchQuizzes)
+final watchQuizzesProvider = AutoDisposeStreamProvider<List<Quiz>>.internal(
+  watchQuizzes,
+  name: r'watchQuizzesProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$quizListHash,
+      : _$watchQuizzesHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-typedef QuizListRef = AutoDisposeStreamProviderRef<List<Quiz>>;
+typedef WatchQuizzesRef = AutoDisposeStreamProviderRef<List<Quiz>>;
+String _$watchQuizByIdHash() => r'3e10ee9b8e2e8706cbb1d731e0abbccefa084ea3';
+
+/// Copied from Dart SDK
+class _SystemHash {
+  _SystemHash._();
+
+  static int combine(int hash, int value) {
+    // ignore: parameter_assignments
+    hash = 0x1fffffff & (hash + value);
+    // ignore: parameter_assignments
+    hash = 0x1fffffff & (hash + ((0x0007ffff & hash) << 10));
+    return hash ^ (hash >> 6);
+  }
+
+  static int finish(int hash) {
+    // ignore: parameter_assignments
+    hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
+    // ignore: parameter_assignments
+    hash = hash ^ (hash >> 11);
+    return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
+  }
+}
+
+/// 실시간 퀴즈 목록 스트림 Provider
+///
+/// Copied from [watchQuizById].
+@ProviderFor(watchQuizById)
+const watchQuizByIdProvider = WatchQuizByIdFamily();
+
+/// 실시간 퀴즈 목록 스트림 Provider
+///
+/// Copied from [watchQuizById].
+class WatchQuizByIdFamily extends Family<AsyncValue<Quiz>> {
+  /// 실시간 퀴즈 목록 스트림 Provider
+  ///
+  /// Copied from [watchQuizById].
+  const WatchQuizByIdFamily();
+
+  /// 실시간 퀴즈 목록 스트림 Provider
+  ///
+  /// Copied from [watchQuizById].
+  WatchQuizByIdProvider call(String id) {
+    return WatchQuizByIdProvider(id);
+  }
+
+  @override
+  WatchQuizByIdProvider getProviderOverride(
+    covariant WatchQuizByIdProvider provider,
+  ) {
+    return call(provider.id);
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'watchQuizByIdProvider';
+}
+
+/// 실시간 퀴즈 목록 스트림 Provider
+///
+/// Copied from [watchQuizById].
+class WatchQuizByIdProvider extends AutoDisposeStreamProvider<Quiz> {
+  /// 실시간 퀴즈 목록 스트림 Provider
+  ///
+  /// Copied from [watchQuizById].
+  WatchQuizByIdProvider(String id)
+    : this._internal(
+        (ref) => watchQuizById(ref as WatchQuizByIdRef, id),
+        from: watchQuizByIdProvider,
+        name: r'watchQuizByIdProvider',
+        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+            ? null
+            : _$watchQuizByIdHash,
+        dependencies: WatchQuizByIdFamily._dependencies,
+        allTransitiveDependencies:
+            WatchQuizByIdFamily._allTransitiveDependencies,
+        id: id,
+      );
+
+  WatchQuizByIdProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.id,
+  }) : super.internal();
+
+  final String id;
+
+  @override
+  Override overrideWith(
+    Stream<Quiz> Function(WatchQuizByIdRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: WatchQuizByIdProvider._internal(
+        (ref) => create(ref as WatchQuizByIdRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        id: id,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeStreamProviderElement<Quiz> createElement() {
+    return _WatchQuizByIdProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is WatchQuizByIdProvider && other.id == id;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, id.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+mixin WatchQuizByIdRef on AutoDisposeStreamProviderRef<Quiz> {
+  /// The parameter `id` of this provider.
+  String get id;
+}
+
+class _WatchQuizByIdProviderElement
+    extends AutoDisposeStreamProviderElement<Quiz>
+    with WatchQuizByIdRef {
+  _WatchQuizByIdProviderElement(super.provider);
+
+  @override
+  String get id => (origin as WatchQuizByIdProvider).id;
+}
+
 String _$quizControllerHash() => r'e8f0336f67cf245e1afee7044db2264afb90f6f1';
 
 /// 퀴즈 관련 비즈니스 로직 컨트롤러 (CRUD)

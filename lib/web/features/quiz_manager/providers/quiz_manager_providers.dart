@@ -13,8 +13,15 @@ QuizDataSource quizDataSource(Ref ref) => QuizDataSource();
 // * READ
 /// 실시간 퀴즈 목록 스트림 Provider
 @riverpod
-Stream<List<Quiz>> quizList(Ref ref) {
+Stream<List<Quiz>> watchQuizzes(Ref ref) {
   return ref.watch(quizDataSourceProvider).watchQuizzes();
+}
+
+// * READ
+/// 실시간 퀴즈 목록 스트림 Provider
+@riverpod
+Stream<Quiz> watchQuizById(Ref ref, String id) {
+  return ref.watch(quizDataSourceProvider).watchQuizById(id);
 }
 
 // * WRITE

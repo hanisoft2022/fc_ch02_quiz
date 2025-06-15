@@ -26,7 +26,7 @@ class QuizScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final quizListAsync = ref.watch(quizListProvider);
+    final quizListAsync = ref.watch(watchQuizzesProvider);
 
     return DefaultTabController(
       length: 2,

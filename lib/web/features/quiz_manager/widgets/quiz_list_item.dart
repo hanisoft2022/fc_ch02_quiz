@@ -10,7 +10,7 @@ class QuizListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ExpansionTile(
       title: quiz.title.text.make(),
-      children: quiz.problems.map((e) => ListTile(title: e.question.text.make())).toList(),
+      children: quiz.options.map((e) => ListTile(title: e.text.text.make())).toList(),
     );
   }
 }

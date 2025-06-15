@@ -1,5 +1,5 @@
 import 'package:ch02_realtime_quiz/common/converters/timestamp_converter.dart';
-import 'package:ch02_realtime_quiz/web/features/quiz_manager/models/problem.dart';
+import 'package:ch02_realtime_quiz/web/features/quiz_manager/models/option.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -11,9 +11,9 @@ abstract class Quiz with _$Quiz {
   @JsonSerializable(explicitToJson: true)
   const factory Quiz({
     required String? id,
-    required List<Problem> problems,
     required String title,
-    Problem? current,
+    required List<Option> options,
+    Option? current,
     @TimestampConverter() DateTime? createdAt,
   }) = _Quiz;
 

@@ -8,13 +8,13 @@ part of 'quiz.dart';
 
 _Quiz _$QuizFromJson(Map<String, dynamic> json) => _Quiz(
   id: json['id'] as String?,
-  problems: (json['problems'] as List<dynamic>)
-      .map((e) => Problem.fromJson(e as Map<String, dynamic>))
-      .toList(),
   title: json['title'] as String,
+  options: (json['options'] as List<dynamic>)
+      .map((e) => Option.fromJson(e as Map<String, dynamic>))
+      .toList(),
   current: json['current'] == null
       ? null
-      : Problem.fromJson(json['current'] as Map<String, dynamic>),
+      : Option.fromJson(json['current'] as Map<String, dynamic>),
   createdAt: const TimestampConverter().fromJson(
     json['createdAt'] as Timestamp?,
   ),
@@ -22,8 +22,8 @@ _Quiz _$QuizFromJson(Map<String, dynamic> json) => _Quiz(
 
 Map<String, dynamic> _$QuizToJson(_Quiz instance) => <String, dynamic>{
   'id': instance.id,
-  'problems': instance.problems.map((e) => e.toJson()).toList(),
   'title': instance.title,
+  'options': instance.options.map((e) => e.toJson()).toList(),
   'current': instance.current?.toJson(),
   'createdAt': const TimestampConverter().toJson(instance.createdAt),
 };

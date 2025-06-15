@@ -1,6 +1,6 @@
 import 'package:ch02_realtime_quiz/web/features/quiz_manager/data/dummy_quiz_provider.dart';
 import 'package:ch02_realtime_quiz/web/features/quiz_manager/data/quiz_manager_converter.dart';
-import 'package:ch02_realtime_quiz/web/features/quiz_manager/models/problem.dart';
+import 'package:ch02_realtime_quiz/web/features/quiz_manager/models/option.dart';
 import 'package:ch02_realtime_quiz/web/features/quiz_manager/models/quiz.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -66,6 +66,11 @@ class QuizDataSource {
   }
 
   // * READ
+  Stream<Quiz> watchQuizById(String id) {
+    return quizzesCollection.doc(id).snapshots().map((doc) => doc.data()!);
+  }
+
+  // * READ
   /// 특정 id의 퀴즈 단건을 조회.
   ///
   /// [id] : 조회할 퀴즈의 문서 id
@@ -98,24 +103,24 @@ class QuizDataSource {
   // * UPDATE
   /// 특정 퀴즈에 문제를 추가.
   /// [quizId] : 문제를 추가할 퀴즈의 문서 id
-  /// [problem] : 추가할 문제 데이터
-  Future<void> addProblemToQuiz(String quizId, Problem problem) async {
+  /// [option] : 추가할 문제 데이터
+  Future<void> addOptionToQuiz(String quizId, Option option) async {
     final quizDoc = quizzesCollection.doc(quizId);
 
     await quizDoc.update({
-      'problems': FieldValue.arrayUnion([problem.toJson()]),
+      'options': FieldValue.arrayUnion([option.toJson()]),
     });
   }
 
   // * UPDATE
   /// 특정 퀴즈에 문제를 삭제.
   /// [quizId] : 문제를 삭제할 퀴즈의 문서 id
-  /// [problem] : 삭제할 문제 데이터
-  Future<void> removeProblemFromQuiz(String quizId, Problem problem) async {
+  /// [option] : 삭제할 문제 데이터
+  Future<void> removeOptionFromQuiz(String quizId, Option option) async {
     final quizDoc = quizzesCollection.doc(quizId);
 
     await quizDoc.update({
-      'problems': FieldValue.arrayRemove([problem.toJson()]),
+      'options': FieldValue.arrayRemove([option.toJson()]),
     });
   }
 
