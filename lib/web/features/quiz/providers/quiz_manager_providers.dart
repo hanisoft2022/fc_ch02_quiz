@@ -1,4 +1,4 @@
-import 'package:ch02_realtime_quiz/web/features/quiz/data/quiz_manager_data_source.dart';
+import 'package:ch02_realtime_quiz/web/features/quiz/data/quiz_data_source.dart';
 import 'package:ch02_realtime_quiz/web/features/quiz/models/quiz.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -42,7 +42,12 @@ class QuizController extends _$QuizController {
   /// 새 퀴즈 추가
   /// [quiz] : 저장할 퀴즈 데이터
   Future<void> addQuiz(Quiz quiz) async {
-    final quizDataSource = ref.read(quizDataSourceProvider);
-    await quizDataSource.addQuiz(quiz);
+    try {
+      state = const AsyncValue.loading();
+      await ref.read(quizDataSourceProvider).addQuiz(quiz);
+      state = const AsyncValue.data(null);
+    } catch (e) {
+      state = AsyncValue.error(e, StackTrace.current);
+    }
   }
 }

@@ -1,5 +1,5 @@
 import 'package:ch02_realtime_quiz/web/features/quiz/data/dummy_quiz_provider.dart';
-import 'package:ch02_realtime_quiz/web/features/quiz/data/quiz_manager_converter.dart';
+import 'package:ch02_realtime_quiz/web/features/quiz/data/quiz_converter.dart';
 import 'package:ch02_realtime_quiz/web/features/quiz/models/option.dart';
 import 'package:ch02_realtime_quiz/web/features/quiz/models/quiz.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';

@@ -1,3 +1,6 @@
+import 'package:ch02_realtime_quiz/web/features/quiz/models/option.dart';
+import 'package:ch02_realtime_quiz/web/features/quiz/models/quiz.dart';
+import 'package:ch02_realtime_quiz/web/features/quiz/providers/quiz_manager_providers.dart';
 import 'package:ch02_realtime_quiz/web/features/quiz_add/widgets/correct_option_selector.dart';
 import 'package:ch02_realtime_quiz/web/features/quiz_add/widgets/option_list.dart';
 import 'package:ch02_realtime_quiz/web/features/quiz_add/widgets/quiz_title_input.dart';
@@ -100,8 +103,42 @@ class QuizAddModal extends HookConsumerWidget {
             Gap(10),
             ElevatedButton(
               onPressed: isFormValid
-                  ? () {
-                      // 제출 로직 구현 예정
+                  ? () async {
+                      // Option 객체 생성
+                      final optionsList = options.value
+                          .asMap()
+                          .entries
+                          .map(
+                            (entry) => Option(
+                              index: entry.key,
+                              text: entry.value,
+                              isCorrectOption: entry.key == correctOptionIndex.value,
+                            ),
+                          )
+                          .toList();
+                      final newQuiz = Quiz(
+                        id: null, // Firestore에서 자동 생성
+                        title: quizTitle.value.trim(),
+                        options: optionsList,
+                        current: null,
+                        createdAt: null, // 서버에서 자동 설정
+                      );
+
+                      try {
+                        await ref.read(quizControllerProvider.notifier).addQuiz(newQuiz);
+                        if (context.mounted) {
+                          ScaffoldMessenger.of(
+                            context,
+                          ).showSnackBar(SnackBar(content: Text('퀴즈 추가 성공!')));
+                          Navigator.pop(context);
+                        }
+                      } catch (e) {
+                        if (context.mounted) {
+                          ScaffoldMessenger.of(
+                            context,
+                          ).showSnackBar(SnackBar(content: Text('퀴즈 추가 실패: ${e.toString()}')));
+                        }
+                      }
                     }
                   : null,
               child: '제출'.text.make(),

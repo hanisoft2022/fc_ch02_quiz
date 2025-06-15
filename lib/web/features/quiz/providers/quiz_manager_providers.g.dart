@@ -197,7 +197,7 @@ class _WatchQuizByIdProviderElement
   String get id => (origin as WatchQuizByIdProvider).id;
 }
 
-String _$quizControllerHash() => r'e8f0336f67cf245e1afee7044db2264afb90f6f1';
+String _$quizControllerHash() => r'b478a8056a4830335410fe1416087b10aaae20f0';
 
 /// 퀴즈 관련 비즈니스 로직 컨트롤러 (CRUD)
 ///
