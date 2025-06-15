@@ -1,5 +1,5 @@
-import 'package:ch02_realtime_quiz/web/features/quiz_manager/data/quiz_manager_data_source.dart';
-import 'package:ch02_realtime_quiz/web/features/quiz_manager/models/quiz.dart';
+import 'package:ch02_realtime_quiz/web/features/quiz/data/quiz_manager_data_source.dart';
+import 'package:ch02_realtime_quiz/web/features/quiz/models/quiz.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 

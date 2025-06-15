@@ -1,4 +1,4 @@
-import 'package:ch02_realtime_quiz/web/features/quiz_manager/models/quiz.dart';
+import 'package:ch02_realtime_quiz/web/features/quiz/models/quiz.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 

@@ -1,5 +1,5 @@
 import 'package:ch02_realtime_quiz/common/converters/timestamp_converter.dart';
-import 'package:ch02_realtime_quiz/web/features/quiz_manager/models/option.dart';
+import 'package:ch02_realtime_quiz/web/features/quiz/models/option.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

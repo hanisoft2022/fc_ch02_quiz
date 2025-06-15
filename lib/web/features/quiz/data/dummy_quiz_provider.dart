@@ -1,7 +1,7 @@
-import 'package:ch02_realtime_quiz/web/features/quiz_manager/models/option.dart';
-import 'package:ch02_realtime_quiz/web/features/quiz_manager/models/quiz.dart';
+import 'package:ch02_realtime_quiz/web/features/quiz/models/option.dart';
+import 'package:ch02_realtime_quiz/web/features/quiz/models/quiz.dart';
 
-/// 더미 데이터 제공자 분리
+/// 더미 데이터 제공자
 class DummyQuizProvider {
   static List<Quiz> getDummyQuizzes() {
     return [

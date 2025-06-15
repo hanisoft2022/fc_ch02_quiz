@@ -1,7 +1,7 @@
-import 'package:ch02_realtime_quiz/web/features/quiz_manager/data/dummy_quiz_provider.dart';
-import 'package:ch02_realtime_quiz/web/features/quiz_manager/data/quiz_manager_converter.dart';
-import 'package:ch02_realtime_quiz/web/features/quiz_manager/models/option.dart';
-import 'package:ch02_realtime_quiz/web/features/quiz_manager/models/quiz.dart';
+import 'package:ch02_realtime_quiz/web/features/quiz/data/dummy_quiz_provider.dart';
+import 'package:ch02_realtime_quiz/web/features/quiz/data/quiz_manager_converter.dart';
+import 'package:ch02_realtime_quiz/web/features/quiz/models/option.dart';
+import 'package:ch02_realtime_quiz/web/features/quiz/models/quiz.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 /// 퀴즈 관리 데이터 소스(Firestore 연동)
@@ -30,7 +30,7 @@ class QuizDataSource {
         toFirestore: QuizConverter.toFirestore,
       );
 
-  /// Converter 없이 raw 데이터로 접근하는 문서 참조 반환
+  /// Converter 없이 raw 데이터로 접근하는 문서 참조 반환.
   DocumentReference<Map<String, dynamic>> rawQuizDoc(String id) =>
       _firestore.collection('quizzes').doc(id);
 
@@ -87,17 +87,6 @@ class QuizDataSource {
   /// [id]는 업데이트할 문서의 id.
   Future<void> _setCreatedAt(String id) async {
     await rawQuizDoc(id).set({'createdAt': FieldValue.serverTimestamp()}, SetOptions(merge: true));
-  }
-
-  // * UPDATE
-  /// 퀴즈 정보를 수정. (전체 필드 덮어쓰기)
-  ///
-  /// [quiz] : 수정할 퀴즈 데이터 (id 필수)
-  Future<void> updateQuiz(Quiz quiz) async {
-    if (quiz.id == null) {
-      throw ArgumentError('Quiz id is required for update.');
-    }
-    await quizzesCollection.doc(quiz.id!).set(quiz, SetOptions(merge: true));
   }
 
   // * UPDATE

@@ -1,5 +1,5 @@
-import 'package:ch02_realtime_quiz/web/features/quiz_manager/models/quiz.dart';
-import 'package:ch02_realtime_quiz/web/features/quiz_manager/widgets/quiz_list_item.dart';
+import 'package:ch02_realtime_quiz/web/features/quiz/models/quiz.dart';
+import 'package:ch02_realtime_quiz/web/features/quiz/widgets/quiz_list_item.dart';
 import 'package:flutter/material.dart';
 
 class QuizListView extends StatelessWidget {
