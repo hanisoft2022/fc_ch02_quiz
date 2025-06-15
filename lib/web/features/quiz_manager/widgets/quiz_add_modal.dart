@@ -17,12 +17,16 @@ class QuizAddModal extends HookConsumerWidget {
     void addOption() {
       options.value = [
         ...options.value,
-        Option(text: '', index: options.value.length, correctOption: false),
+        Option(text: '', index: options.value.length, isCorrectOption: false),
       ];
     }
 
     void removeOption(int index) {
-      options.value = [...options.value..removeAt(index)];
+      final newOptions = List<Option>.from(options.value)..removeAt(index);
+      for (int i = 0; i < newOptions.length; i++) {
+        newOptions[i] = newOptions[i].copyWith(index: i);
+      }
+      options.value = newOptions;
     }
 
     void updateOptionText(int index, String value) {
@@ -36,17 +40,16 @@ class QuizAddModal extends HookConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          '퀴즈 제목'.text.bold.make(),
+          '퀴즈 제목'.text.size(20).bold.make(),
           TextField(
             decoration: InputDecoration(hintText: '퀴즈 제목을 입력하세요'),
             controller: quizTitleTEC,
           ).p12(),
-          Divider(),
           Gap(10),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              '선택지 목록'.text.bold.make(),
+              '선택지 목록'.text.size(15).bold.make(),
               TextButton.icon(
                 icon: Icon(Icons.add),
                 onPressed: addOption,
@@ -55,16 +58,25 @@ class QuizAddModal extends HookConsumerWidget {
             ],
           ),
           Expanded(
-            child: ListView(
-              children: [
-                for (int i = 0; i < options.value.length; i++)
-                  OptionInput(
-                    option: options.value[i],
-                    onChanged: (value) => updateOptionText(i, value),
-                    onRemove: () => removeOption(i),
+            child: options.value.isEmpty
+                ? Text('선택지를 추가하세요.').centered()
+                : ListView(
+                    children: [
+                      for (int i = 0; i < options.value.length; i++)
+                        OptionInput(
+                          option: options.value[i],
+                          onChanged: (value) => updateOptionText(i, value),
+                          onRemove: () => removeOption(i),
+                        ),
+                    ],
                   ),
-              ],
-            ),
+          ),
+          '정답 선택하기'.text.size(15).bold.make(),
+          DropdownButton(
+            items: options.value
+                .map((e) => DropdownMenuItem(value: e, child: e.text.text.make()))
+                .toList(),
+            onChanged: (value) {},
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,

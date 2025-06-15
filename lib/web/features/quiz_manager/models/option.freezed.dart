@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Option {
 
- int get index; String get text; bool get correctOption;
+ int get index; String get text; bool get isCorrectOption;
 /// Create a copy of Option
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,16 +29,16 @@ $OptionCopyWith<Option> get copyWith => _$OptionCopyWithImpl<Option>(this as Opt
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Option&&(identical(other.index, index) || other.index == index)&&(identical(other.text, text) || other.text == text)&&(identical(other.correctOption, correctOption) || other.correctOption == correctOption));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Option&&(identical(other.index, index) || other.index == index)&&(identical(other.text, text) || other.text == text)&&(identical(other.isCorrectOption, isCorrectOption) || other.isCorrectOption == isCorrectOption));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,index,text,correctOption);
+int get hashCode => Object.hash(runtimeType,index,text,isCorrectOption);
 
 @override
 String toString() {
-  return 'Option(index: $index, text: $text, correctOption: $correctOption)';
+  return 'Option(index: $index, text: $text, isCorrectOption: $isCorrectOption)';
 }
 
 
@@ -49,7 +49,7 @@ abstract mixin class $OptionCopyWith<$Res>  {
   factory $OptionCopyWith(Option value, $Res Function(Option) _then) = _$OptionCopyWithImpl;
 @useResult
 $Res call({
- int index, String text, bool correctOption
+ int index, String text, bool isCorrectOption
 });
 
 
@@ -66,11 +66,11 @@ class _$OptionCopyWithImpl<$Res>
 
 /// Create a copy of Option
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? index = null,Object? text = null,Object? correctOption = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? index = null,Object? text = null,Object? isCorrectOption = null,}) {
   return _then(_self.copyWith(
 index: null == index ? _self.index : index // ignore: cast_nullable_to_non_nullable
 as int,text: null == text ? _self.text : text // ignore: cast_nullable_to_non_nullable
-as String,correctOption: null == correctOption ? _self.correctOption : correctOption // ignore: cast_nullable_to_non_nullable
+as String,isCorrectOption: null == isCorrectOption ? _self.isCorrectOption : isCorrectOption // ignore: cast_nullable_to_non_nullable
 as bool,
   ));
 }
@@ -82,12 +82,12 @@ as bool,
 @JsonSerializable()
 
 class _Option implements Option {
-  const _Option({required this.index, required this.text, required this.correctOption});
+  const _Option({required this.index, required this.text, required this.isCorrectOption});
   factory _Option.fromJson(Map<String, dynamic> json) => _$OptionFromJson(json);
 
 @override final  int index;
 @override final  String text;
-@override final  bool correctOption;
+@override final  bool isCorrectOption;
 
 /// Create a copy of Option
 /// with the given fields replaced by the non-null parameter values.
@@ -102,16 +102,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Option&&(identical(other.index, index) || other.index == index)&&(identical(other.text, text) || other.text == text)&&(identical(other.correctOption, correctOption) || other.correctOption == correctOption));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Option&&(identical(other.index, index) || other.index == index)&&(identical(other.text, text) || other.text == text)&&(identical(other.isCorrectOption, isCorrectOption) || other.isCorrectOption == isCorrectOption));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,index,text,correctOption);
+int get hashCode => Object.hash(runtimeType,index,text,isCorrectOption);
 
 @override
 String toString() {
-  return 'Option(index: $index, text: $text, correctOption: $correctOption)';
+  return 'Option(index: $index, text: $text, isCorrectOption: $isCorrectOption)';
 }
 
 
@@ -122,7 +122,7 @@ abstract mixin class _$OptionCopyWith<$Res> implements $OptionCopyWith<$Res> {
   factory _$OptionCopyWith(_Option value, $Res Function(_Option) _then) = __$OptionCopyWithImpl;
 @override @useResult
 $Res call({
- int index, String text, bool correctOption
+ int index, String text, bool isCorrectOption
 });
 
 
@@ -139,11 +139,11 @@ class __$OptionCopyWithImpl<$Res>
 
 /// Create a copy of Option
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? index = null,Object? text = null,Object? correctOption = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? index = null,Object? text = null,Object? isCorrectOption = null,}) {
   return _then(_Option(
 index: null == index ? _self.index : index // ignore: cast_nullable_to_non_nullable
 as int,text: null == text ? _self.text : text // ignore: cast_nullable_to_non_nullable
-as String,correctOption: null == correctOption ? _self.correctOption : correctOption // ignore: cast_nullable_to_non_nullable
+as String,isCorrectOption: null == isCorrectOption ? _self.isCorrectOption : isCorrectOption // ignore: cast_nullable_to_non_nullable
 as bool,
   ));
 }

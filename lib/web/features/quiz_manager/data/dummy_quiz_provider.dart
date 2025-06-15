@@ -9,16 +9,16 @@ class DummyQuizProvider {
         id: null,
         title: '더미 퀴즈1',
         options: [
-          Option(index: 0, text: '선택지 1. 2^31-1', correctOption: true),
-          Option(index: 1, text: '선택지 2. Provider', correctOption: false),
+          Option(index: 0, text: '선택지 1. 2^31-1', isCorrectOption: true),
+          Option(index: 1, text: '선택지 2. Provider', isCorrectOption: false),
         ],
       ),
       Quiz(
         id: null,
         title: '더미 퀴즈2',
         options: [
-          Option(index: 0, text: '선택지1 2^63-1', correctOption: false),
-          Option(index: 1, text: '선택지2 Bloc', correctOption: true),
+          Option(index: 0, text: '선택지1 2^63-1', isCorrectOption: false),
+          Option(index: 1, text: '선택지2 Bloc', isCorrectOption: true),
         ],
       ),
     ];

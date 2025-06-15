@@ -1,6 +1,7 @@
 import 'package:ch02_realtime_quiz/web/features/quiz_manager/models/option.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class OptionInput extends HookWidget {
   final Option option;
@@ -17,12 +18,10 @@ class OptionInput extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final controller = useTextEditingController(text: option.text);
-    useEffect(() {
-      controller.text = option.text;
-      return null;
-    }, [option.text]);
+
     return Row(
       children: [
+        '${option.index + 1}.  '.text.make(),
         Expanded(
           child: TextField(
             controller: controller,
